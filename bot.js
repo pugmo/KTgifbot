@@ -4,10 +4,10 @@ var botID = process.env.BOT_ID;
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
-  trigger = request.text.substring(0,2);
+  trigger = request.text.substring(0,6);
   
-  if (trigger == '/g' && request.name != 'gifbot') {
-    searchTerm = request.text.substr(3);
+  if (trigger == '/fetch' && request.name != 'gifbot') {
+    searchTerm = request.text.substr(7);
     this.res.writeHead(200);
     requestLink(searchTerm);
     this.res.end();
