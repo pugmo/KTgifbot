@@ -6,7 +6,7 @@ function respond() {
   var request = JSON.parse(this.req.chunks[0]),
   trigger = request.text.substring(0,2);
   
-  if (trigger == '/g' && request.name != 'gifbot') {
+  if (trigger == '/fetch' && request.name != 'gifbot') {
     searchTerm = request.text.substr(3);
     this.res.writeHead(200);
     requestLink(searchTerm);
