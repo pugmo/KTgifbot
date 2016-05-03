@@ -1,6 +1,7 @@
 var HTTPS = require('https');
 var request = require('request');
 var botID = process.env.BOT_ID;
+var fix = "nope";
 
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
@@ -11,6 +12,7 @@ function respond() {
     this.res.writeHead(200);
     requestLink(searchTerm);
     this.res.end();
+    fix= "yup"
   }
 }
 
@@ -65,7 +67,8 @@ var HTTPS = require('https');
 var cool = "Bark Bark! :)";
 
 var botID = process.env.BOT_ID;
-
+if (fix == "nope")
+{
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /Good Girl/;
@@ -115,6 +118,6 @@ function postMessage() {
   });
   botReq.end(JSON.stringify(body));
 }
-
+}
 
 exports.respond = respond;
