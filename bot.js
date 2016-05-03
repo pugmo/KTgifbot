@@ -55,4 +55,3 @@ function postMessage(botResponse, botID, size) {
 }
 
 exports.respond = respond;
-
